@@ -1,0 +1,60 @@
+<html data-lt-installed="true">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  <title>Scope</title>
+
+</head>
+
+<body>
+  <a href="https://static.platzi.com/ejercicios/">Go back</a>
+  <p><em>Abre la consola</em></p>
+
+
+
+  <script>
+    //Global
+    var message = 'Hola tio';
+
+    //Horror
+    function printNum() {
+      for (var i = 0; i < 10; i++) {
+        setTimeout(function () {
+          console.log(i)
+        }, 100)
+      }
+    }
+    printNum();
+
+    //mejor
+    function imprime() {
+      for (var y = 0; y < 10; y++) {
+        function ev(n) {
+          setTimeout(function () {
+            console.log(n)
+          }, 100)
+        }
+        ev(y);
+      }
+    }
+    imprime();
+
+    //ahora con let
+    function imprimeLet() {
+      console.log('Block scope')
+      for (let k = 0; k < 10; k++) {
+        setTimeout(function () {
+          console.log(k)
+        }, 100)
+
+      }
+    }
+
+    imprimeLet();
+  </script>
+  <script
+    type="text/javascript">(function () { window['__CF$cv$params'] = { r: '6718b335bbdd36e3', m: 'c898434f761d19edbd749f32b7595c377987136b-1626747519-1800-AQ/EBixoUCHp62/QLdZEJzhK3xpeJ6SaXfbAEgB5jl7SjkggTHfxsY9Fnj20+gsQlDgOCsAHzF8/DeKEJHA+dby8RjWOPO+IQYhw5tURU/+3lNHSCiDHRu6Bj2iLfUpKXuShQH8rWmIjPv9JGpfJidlPidzn3TwCUZV15yoBRTIvhRNQXpK4YC0qvfOcYpHm54Rodz+cnP/9o5Weoyv5T+4=', s: [0xc3d345d99f, 0x272ffa4c29], } })();</script>
+
+</body>
+
+</html>

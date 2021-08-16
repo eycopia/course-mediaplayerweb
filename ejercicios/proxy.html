@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Promesas</title>
+</head>
+
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <script src="https://unpkg.com/fast-levenshtein@2.0.6/levenshtein.js"></script>
+    <script>
+        const target = {
+            red: "Rojo",
+            green: "Verde",
+            blue: "Blue"
+        }
+
+        const handler = {
+            get(obj, prop) {
+                if (prop in obj) { return obj[prop] }
+
+                const suggestion = Object.keys(obj).find(key => {
+                    return Levenshtein.get(key, prop) <= 3
+                })
+
+                if (suggestion) {
+                    console.log(`Quieres decir? ${suggestion}`);
+                }
+                return obj[prop]
+            },
+        }
+        const p = new Proxy(target, handler);
+    </script>
+</body>
+
+</html>

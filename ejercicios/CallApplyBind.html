@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Bind y Apply</title>
+</head>
+
+<body>
+
+    <button class="botones">Boton 1</button>
+    <button class="botones">Boton 2</button>
+    <button class="botones">Boton 3</button>
+
+    <script>
+        function saludar() {
+            return `Hola ${this.name} ${this.lastName}`;
+        }
+        console.log(saludar.apply({ name: 'Jorge', lastName: 'Copia' }));
+
+        botones = document.getElementsByClassName('botones');
+
+        //Quiero que al hacer click en cada boton me diga hola
+        //no es posible con eso, xq no es un array como tal
+        /*
+        botones.forEach(btn => {
+            btn.onclick = () => alert('Hola tío');
+        });*/
+
+        //Para hacerlo funcionar se debe usar la definicion Array 
+        Array.prototype.forEach.call(botones, btn => {
+            btn.onclick = () => alert('Hola tío');
+        })
+
+
+    </script>
+</body>
+
+</html>

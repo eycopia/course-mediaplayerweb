@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title>Promesas</title>
+</head>
+
+<body>
+    <a href="/ejercicios/">Go back</a>
+
+    <script>
+        function* simpleGenerator() {
+            console.log("Un generador");
+            yield 1;
+            yield 2;
+            console.log("Fin");
+        }
+
+        function* idMaker() {
+            let id = 1;
+            while (true) {
+                yield id;
+                id++
+            }
+        }
+
+        function* idMakerWithReset() {
+            let id = 1;
+            while (true) {
+                isReset = yield id;
+                if (isReset) {
+                    id = 1;
+                } else {
+                    id++
+                }
+            }
+        }
+
+        function* fibo() {
+            let a = 1;
+            let b = 1;
+            while (true) {
+                let siguiente = a + b;
+                a = b;
+                b = siguiente;
+                yield b;
+            }
+        }
+
+        const gen = simpleGenerator()
+        const gen2 = idMaker();
+        const gen3 = idMakerWithReset();
+        const gen4 = fibo();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Baa</title>
+</head>
+
+<body>
+    <script>
+        function val() {
+            return this;
+        }
+
+        console.log('aaaaaaaaaaaaa---', val())
+
+
+
+        function v() {
+            'use strict';
+            return this;
+        }
+        console.log('eeee---', v())
+
+        const t = {
+            name: 'Juan',
+            saludar: function () {
+                return `Hola ${this.name}`;
+            }
+        }
+
+        console.log(t.saludar());
+
+        let s = t.saludar;
+        console.log('vaa....', s());
+
+        //clase
+        function Person(nombre) {
+            this.nombre = nombre;
+        }
+
+        Person.prototype.saludar = function () {
+            return this.nombre;
+        };
+
+        var per = new Person('Juana');
+        console.log('person....', per.saludar());
+
+        //no se puede
+        var ta = Person.saludar;
+        console.log('A ver que es esto: ', ta.saludar())
+    </script>
+</body>
+
+</html>

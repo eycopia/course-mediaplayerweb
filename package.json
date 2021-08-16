@@ -1,0 +1,24 @@
+{
+  "name": "platzi-media-player",
+  "version": "1.0.0",
+  "description": "Proyect del curso de platzi",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html ejercicios/**/*.html"
+  },
+  "keywords": [
+    "platzi"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "typescript": "^4.3.5"
+  },
+  "browsersList": [
+    "last 1 Chrome version"
+  ],
+  "dependencies": {
+    "@eycopia/mediaplayerjs": "^1.0.0"
+  }
+}
